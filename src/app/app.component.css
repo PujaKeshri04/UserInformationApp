@@ -1,0 +1,26 @@
+.navigation-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #006cbe;
+}
+
+.navigation-bar li {
+  float: left;
+}
+
+.navigation-bar li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 5px;
+  text-decoration: none;
+}
+
+.navigation-bar li a{
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+}
