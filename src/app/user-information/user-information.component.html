@@ -12,27 +12,36 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of userInfo">
-            <td>{{user.name}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.email}}</td>
-            <td>
-                <ul class="style-none">
-                    <li>{{user.address.street}}</li>
-                    <li>{{user.address.suite}}</li>
-                    <li>{{user.address.city}}</li>
-                    <li>{{user.address.zipcode}}</li>
-                </ul>
-            </td>
-            <td>{{user.phone}}</td>
-            <td>
-                <ul class="style-none">
-                    <li>{{user.company.name}}</li>
-                    <li>{{user.company.catchPhrase}}</li>
-                    <li>{{user.company.bs}}</li>
-                </ul>
-            </td>
-            </tr>        
+            <ng-container *ngIf="userInfo.length > 0 ; else noRecordFound">
+                <tr *ngFor="let user of userInfo">
+                    <td>{{user.name}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <ul class="style-none">
+                            <li>{{user.address.street}},</li>
+                            <li>{{user.address.suite}},</li>
+                            <li>{{user.address.city}},</li>
+                            <li>zip code : {{user.address.zipcode}}</li>
+                            <li>lat : {{user.address.geo.lat}}, lng : {{user.address.geo.lng}}</li>
+                        </ul>
+                    </td>
+                    <td>{{user.phone}}</td>
+                    <td>
+                        <ul class="style-none">
+                            <li>{{user.company.name}}</li>
+                            <li>{{user.company.catchPhrase}}</li>
+                            <li>{{user.company.bs}}</li>
+                        </ul>
+                    </td>
+                </tr> 
+            </ng-container>
+            <ng-template #noRecordFound>
+                <tr>
+                    <td colspan="6" align="center">No Records Found</td>
+                </tr>
+            </ng-template>      
         </tbody>
     </table>
 </div>
+
